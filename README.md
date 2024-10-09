@@ -18,7 +18,7 @@ If you don't have `go` and don't want to install it, you can use the docker imag
 
 ```sh
 mkidr output
-docker run --rm -e MAXMIND_ACCOUNT=ID -e MAXMIND_LICENSE="LICENSE" -v ./output:/output docker-mmdb-haproxy:latest
+docker run --rm -e MAXMIND_ACCOUNT=ID -e MAXMIND_LICENSE="LICENSE" -v ./output:/output nioupola/geoip2-haproxy-ranges:latest
 ```
 
 ### Without docker
