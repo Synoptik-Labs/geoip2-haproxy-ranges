@@ -1,2 +1,1 @@
-country-subnets/*
-geoip2-haproxy-ranges
+docker/output/*
