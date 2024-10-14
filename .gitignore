@@ -1,1 +1,3 @@
 docker/output/*
+output/*
+*.tar.gz

@@ -7,6 +7,7 @@ import (
 	"path"
 
 	maxminddb "github.com/oschwald/maxminddb-golang"
+	"github.com/schollz/progressbar/v3"
 )
 
 var db string
@@ -34,6 +35,7 @@ func main() {
 
 	networks := mmdb.Networks()
 	i := 0
+	bar := progressbar.Default(-1)
 	for networks.Next() {
 		subnet, err := networks.Network(&record)
 		if err != nil {
@@ -52,6 +54,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		bar.Add(1)
 		i++
 	}
 	for _, file := range isoToFile {
@@ -59,5 +62,5 @@ func main() {
 			log.Fatal(err)
 		}
 	}
-	fmt.Printf("Wrote %d records from %s\n", i, db)
+	fmt.Printf("\nWrote %d records from %s\n", i, db)
 }
